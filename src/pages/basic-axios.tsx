@@ -35,7 +35,7 @@ const [data, setData] = useState<DataType[]>([]);
                 <div className='flex flex-col items-center py-10 max-w-2xl mx-auto'>
                 <h1 className='text-white font-bold text-4xl'>Basic Axios Data Fetching</h1>
                     <ul className='text-red-600 flex flex-wrap'>
-                        {data.map((item) => (
+                        {data.slice(0, 30).map((item) => (
                         <li key={item.id}>
                             <div className='p-2 bg-gray-200 rounded-sm m-1 w-[96px]'>
                             {item.id}. <br/>
