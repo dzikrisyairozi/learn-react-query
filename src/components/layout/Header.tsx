@@ -6,7 +6,7 @@ const Header = () => {
     <header>
     <nav className='py-5 bg-gray-900'>
       <div className='container flex flex-wrap items-center justify-between mx-auto'>
-        <a href="" className='flex items-center'>
+        <a href="/" className='flex items-center'>
           <Image src='/Logo.png' alt="Logo" width={36} height={36} className='mr-3' />
           <span className='self-center text-xl font-semibold text-white'>Demo</span>
         </a>

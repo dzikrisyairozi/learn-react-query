@@ -15,6 +15,7 @@ const Hero = () => {
       <div className='flex justify-center gap-3'>
         <ButtonLink link='get-started' title='Get Started'/>
         <ButtonLink link='basic-axios' title='Basic Axios'/>
+        <ButtonLink link='axios-tmdb' title='Axios TMDb API'/>
       </div>
     </div>
   </section>
