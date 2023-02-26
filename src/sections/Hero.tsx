@@ -14,7 +14,7 @@ const Hero = () => {
       </p>
       <div className='flex justify-center gap-3'>
         <ButtonLink link='get-started' title='Get Started'/>
-        <ButtonLink link='demo' title='Demo'/>
+        <ButtonLink link='basic-axios' title='Basic Axios'/>
       </div>
     </div>
   </section>
