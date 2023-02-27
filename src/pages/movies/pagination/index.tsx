@@ -66,7 +66,7 @@ const Movies: NextPage = () => {
                                 {page.map((movie) => (
                                     <div key={movie.id}>
                                     <Poster
-                                        link='#'
+                                        link={`/movies/${movie.id}`}
                                         poster_path={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                         title={movie.title}
                                         release_date={movie.release_date}
