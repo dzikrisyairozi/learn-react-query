@@ -1,5 +1,6 @@
 import ButtonLink from '@/components/ButtonLink'
 import Counter from '@/components/Counter'
+import Link from 'next/link'
 import React from 'react'
 
 const Hero = () => {
@@ -19,6 +20,13 @@ const Hero = () => {
         <ButtonLink link='basic-react-query' title='Basic React Query'/>
         <ButtonLink link='pagination-react-query' title='Pagination React Query'/>
         <ButtonLink link='rq-tmdb' title='React Query TMDb API'/>
+      </div>
+      <div>
+        <Link href='/movies'>
+        <button className='bg-red-600 p-3 rounded-lg shadow-lg transition duration-500 hover:scale-105 hover:shadow-2xl hover:bg-red-700'>
+          <p className='text-gray-200 font-bold'>Movies Page</p>
+        </button>
+        </Link>
       </div>
     </div>
   </section>
