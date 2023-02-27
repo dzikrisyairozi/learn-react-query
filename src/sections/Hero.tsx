@@ -18,6 +18,7 @@ const Hero = () => {
         <ButtonLink link='axios-tmdb' title='Axios TMDb API'/>
         <ButtonLink link='basic-react-query' title='Basic React Query'/>
         <ButtonLink link='pagination-react-query' title='Pagination React Query'/>
+        <ButtonLink link='rq-tmdb' title='React Query TMDb API'/>
       </div>
     </div>
   </section>
