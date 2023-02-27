@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { getPopularMovies } from "@/pages/api/rq-tmdb";
 import Layout from "@/components/layout/Layout";
 import Head from "next/head";
+import Image from "next/image";
 
 const PopularMovies = () => {
   const { isLoading, isError, data, error } = useQuery(
@@ -26,12 +27,23 @@ const PopularMovies = () => {
           <main className='bg-gray-800 min-h-screen'>
             <div className="py-10 ">
                 <div className="flex flex-col justify-center items-center mx-auto w-5/6">
-                    <h1 className="text-white font-bold text-4xl pb-5">Popular Movies</h1>
-                    <div className="flex flex-wrap gap-8">
+                    <h1 className="text-white font-bold text-4xl pb-5">Fetching TMDb API using React Query</h1>
+                    <div className="flex flex-wrap justify-center gap-3">
                         {data.results.map((movie: any) => (
-                        <div key={movie.id} className='bg-gray-200 rounded-lg p-5'>
-                            <p className="text-red-500">{movie.title}</p>
-                        </div>
+                            <div key={movie.id}>
+                                <div className='flex flex-col items-center p-2 bg-gray-200 rounded-sm m-1 w-[256px] h-[384px] scale-95 transition duration-500 hover:scale-105'>
+                                    <Image
+                                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                        alt={movie.title}
+                                        width={200}
+                                        height={300}
+                                    />
+                                    <div className='flex flex-col items-start justify-start w-full pl-5'>
+                                        <p className='text-red-500 font-semibold'>{movie.title}</p>
+                                        <p className='text-red-500 font-regular'>{movie.release_date}</p>
+                                    </div>
+                                </div>
+                            </div>
                         ))}
                     </div>
                 </div>
