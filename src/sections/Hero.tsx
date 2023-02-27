@@ -12,11 +12,12 @@ const Hero = () => {
       <p className='text-xl font-normal text-gray-200'>
         React Data Query
       </p>
-      <div className='flex justify-center gap-3'>
+      <div className='flex flex-wrap w-full items-center justify-center gap-3'>
         <ButtonLink link='get-started' title='Get Started'/>
         <ButtonLink link='basic-axios' title='Basic Axios'/>
         <ButtonLink link='axios-tmdb' title='Axios TMDb API'/>
         <ButtonLink link='basic-react-query' title='Basic React Query'/>
+        <ButtonLink link='pagination-react-query' title='Pagination React Query'/>
       </div>
     </div>
   </section>

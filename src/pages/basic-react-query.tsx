@@ -1,7 +1,9 @@
-import { useQuery } from 'react-query';
+import { useQuery, useInfiniteQuery, QueryCache } from 'react-query';
 import type { NextPage } from 'next';
 import Layout from '@/components/layout/Layout';
 import Head from 'next/head';
+import React from 'react'
+
 
 interface Post {
   id: number;
@@ -16,18 +18,20 @@ interface QueryError {
 
 const QUERY_KEY = 'https://jsonplaceholder.typicode.com/posts';
 
+
 const Posts: NextPage = () => {
     const { isLoading, error, data } = useQuery<Post[]>(QUERY_KEY, async () => {
       const response = await fetch(QUERY_KEY);
       return response.json();
     });
-  
+
     if (isLoading) return <div>Loading...</div>;
     
-if (error) {
-    const queryError = error as QueryError;
-    return <div>Error: {queryError.message}</div>;
-  }
+
+    if (error) {
+        const queryError = error as QueryError;
+        return <div>Error: {queryError.message}</div>;
+    }
   
     return (
         <>
@@ -40,7 +44,7 @@ if (error) {
             </Head>
             <main className='bg-gray-800'>
                 <div className='flex flex-col items-center py-10 max-w-2xl mx-auto'>
-                <h1 className='text-white font-bold text-4xl'>Basic Axios Data Fetching</h1>
+                <h1 className='text-white font-bold text-4xl'>Basic React Query Data Fetching</h1>
                     <ul className='text-red-600 flex flex-wrap'>
                         {data?.slice(0, 30).map((item) => (
                         <li key={item.id}>
