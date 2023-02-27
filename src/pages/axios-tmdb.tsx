@@ -20,13 +20,45 @@ type DataType = {
 const MoviesPage = () => {
   const [movies, setMovies] = useState<DataType[]>([]);
 
+//   useEffect(() => {
+//     const fetchMovies = async () => {
+//       const data = await getPopularMovies();
+//       setMovies(data.results);
+//     };
+//     fetchMovies();
+//   }, []);
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
+
   useEffect(() => {
     const fetchMovies = async () => {
-      const data = await getPopularMovies();
-      setMovies(data.results);
+      setIsLoading(true);
+
+      try {
+        const data = await getPopularMovies();
+        setMovies(data);
+      } catch (error:any) {
+        setError(error.message);
+      }
+
+      setIsLoading(false);
     };
+
     fetchMovies();
   }, []);
+
+  if (isLoading) {
+    return (
+        <div className='min-h-screen bg-gray-800 flex justify-center items-center'>
+            <p className='text-white text-4xl font-semibold'>Loading...</p>
+        </div>
+    );
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <>
