@@ -15,7 +15,13 @@ export default function MoviesPage() {
             <main className='min-h-screen bg-gray-700'>
                 <div className='flex flex-col justify-center items-center'>
                     <p className='text-white font-bold text-4xl py-5'>Popular Movies</p>
-                    <Poster/>
+                    <Poster
+                        link='#'
+                        poster_path='/poster.jpg'
+                        title='Wakanda Forever'
+                        release_date='12-06-2023'
+                        overview='Lorem20'
+                    />
                 </div>
             </main>
         </Layout>
