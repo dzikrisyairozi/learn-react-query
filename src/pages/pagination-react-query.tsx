@@ -26,19 +26,6 @@ const fetchPosts = async (pageParam?: number) => {
 
 
 const Posts: NextPage = () => {
-    // const { isLoading, error, data } = useQuery<Post[]>(QUERY_KEY, async () => {
-    //   const response = await fetch(QUERY_KEY);
-    //   return response.json();
-    // });
-
-    // if (isLoading) return <div>Loading...</div>;
-    
-
-    // if (error) {
-    //     const queryError = error as QueryError;
-    //     return <div>Error: {queryError.message}</div>;
-    // }
-
     const {
         data,
         fetchNextPage,
@@ -51,11 +38,27 @@ const Posts: NextPage = () => {
         {
         getNextPageParam: (lastPage, allPages) =>
             lastPage.length === 0 ? undefined : allPages.length + 1,
-        }
+        },
     );
 
     if (status === 'loading') return <div>Loading...</div>;
     if (status === 'error') return <div>Error</div>;
+
+    // const { data, status } = useQuery<Post[]>(QUERY_KEY, {
+    //     cacheTime: 60 * 60 * 1000, // cache for 1 hour
+    //   });
+    
+    //   if (status === 'loading') return  (
+    //     <div className='min-h-screen bg-gray-800 flex justify-center items-center'>
+    //         <p className='text-white text-4xl font-semibold'>Loading...</p>
+    //     </div>
+    //   )           
+    //   if (status === 'error') return (
+    //     <div className='min-h-screen bg-gray-800 flex justify-center items-center'>
+    //         <p className='text-red-500 text-6xl font-semibold'>Data Fetching Error</p>
+    //     </div>
+    // );
+
 
   
     return (
@@ -91,18 +94,14 @@ const Posts: NextPage = () => {
                     >
                         {isFetchingNextPage ? 'Loading more...' : 'Load more'}
                     </button>
-                    {/* <ul className='text-red-600 flex flex-wrap'>
-                        {data?.slice(0, 30).map((item) => (
-                        <li key={item.id}>
-                            <div className='p-2 bg-gray-200 rounded-sm m-1 w-[96px]'>
-                            {item.id}. <br/>
-                            <div className='line-clamp-3'>
-                            {item.title}
-                            </div>
-                            </div>
-                        </li>
-                        ))}
-                    </ul> */}
+                        {/* <>
+                            {data?.map((post) => (
+                                <div key={post.id}>
+                                <h2>{post.title}</h2>
+                                <p>{post.body}</p>
+                                </div>
+                            ))}
+                        </> */}
                 </div>
             </main>
         </Layout>
