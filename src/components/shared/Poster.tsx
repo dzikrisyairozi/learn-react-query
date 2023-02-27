@@ -35,9 +35,9 @@ const Poster = ({
                     />
                     <div className='absolute bottom-[-180px] h-1/2 w-full bg-gradient-to-t from-gray-900 via-gray-800 to-transparent transition duration-500 group-hover/card:translate-y-[-180px]'>
                         <div className='absolute bottom-[2px] m-3'>
-                            <p className='text-gray-200 font-semibold text-[16px]'>{title}</p>
-                            <p className='text-gray-200 text-[12px]'>{release_date}</p>
-                            <p className='text-gray-200 text-[12px]'>{overview}</p>
+                            <p className='text-gray-200 font-bold text-[16px]'>{title}</p>
+                            <p className='text-gray-200 font-semibold text-[12px]'>{release_date}</p>
+                            <p className='text-gray-200 text-[12px] line-clamp-3'>{overview}</p>
                         </div>
                     </div>
                 </div>
