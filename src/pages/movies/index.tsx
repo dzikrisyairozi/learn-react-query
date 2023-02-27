@@ -3,7 +3,6 @@ import Layout from '@/components/layout/Layout'
 import Poster from '@/components/shared/Poster'
 import { useQuery } from "react-query";
 import { getPopularMovies } from "@/pages/api/rq-tmdb";
-import Image from 'next/image';
 
 export default function MoviesPage() {
     const { isLoading, isError, data, error } = useQuery(
